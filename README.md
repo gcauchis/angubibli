@@ -2,4 +2,4 @@
 
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angubibli)
 
-A test for Angular
+A test for Angular and angular material

@@ -77,7 +77,7 @@ export class BookService {
 
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    this.messagesService.add(`HeroService: ${message}`);
+    this.messagesService.add(`BookService: ${message}`);
   }
 
 }
