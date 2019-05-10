@@ -1,0 +1,38 @@
+<h2>Books</h2>
+<div class="mat-elevation-z8">
+	<table mat-table [dataSource]="dataSource">
+
+		<ng-container matColumnDef="id">
+			<th mat-header-cell *matHeaderCellDef>ID</th>
+			<td mat-cell *matCellDef="let book"><a mat-raised-button routerLink="/book/{{book.id}}">{{book.id}}</a></td>
+		</ng-container>
+
+		<ng-container matColumnDef="title">
+			<th mat-header-cell *matHeaderCellDef>Title</th>
+			<td mat-cell *matCellDef="let book">{{book.title}}</td>
+		</ng-container>
+
+		<ng-container matColumnDef="author">
+			<th mat-header-cell *matHeaderCellDef>Author</th>
+			<td mat-cell *matCellDef="let book">{{book.author}}</td>
+		</ng-container>
+
+		<ng-container matColumnDef="release">
+			<th mat-header-cell *matHeaderCellDef>Release date</th>
+			<td mat-cell *matCellDef="let book">{{book.release | date:"dd/MM/yyyy"}}</td>
+		</ng-container>
+
+		<ng-container matColumnDef="delete">
+			<th mat-header-cell *matHeaderCellDef></th>
+			<td mat-cell *matCellDef="let book"><button mat-mini-fab (click)="delete(book)" color="warn">X</button></td>
+		</ng-container>
+
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+	</table>
+	<mat-paginator [pageSizeOptions]="[5, 10, 20, 50, 100]" showFirstLastButtons></mat-paginator>
+</div>
+
+<!--mat-nav-list>
+  <mat-list-item *ngFor="let book of books">{{book.title}} ({{book.author}})</mat-list-item>
+</mat-nav-list-->

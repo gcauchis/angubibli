@@ -1,0 +1,24 @@
+<mat-card *ngIf="book">
+  <mat-card-header>
+    <mat-card-title>{{ book.id }}: {{book.title | uppercase}} ({{ book.author }})</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="book-form">
+    <mat-form-field class="book-full-width">
+      <input matInput [(ngModel)]="book.title" placeholder="Title"/>
+    </mat-form-field>
+    <mat-form-field class="book-full-width">
+      <input matInput [(ngModel)]="book.author" placeholder="Author"/>
+      <!--mat-icon matSuffix>sentiment_very_satisfied</mat-icon-->
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="releasepicker" [(ngModel)]="book.release" placeholder="Release date"/>
+      <mat-datepicker-toggle matSuffix [for]="releasepicker"></mat-datepicker-toggle>
+      <mat-datepicker #releasepicker></mat-datepicker>
+    </mat-form-field>
+    <mat-card-actions>
+      <button mat-raised-button (click)="goBack()">go back</button>
+      <button mat-raised-button (click)="save()">save</button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
