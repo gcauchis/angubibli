@@ -20,6 +20,7 @@ import { BookComponent } from './book/book.component';
 import { MessagesComponent } from './messages/messages.component';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { BookSearchComponent } from './book-search/book-search.component';
 
 @NgModule({
   imports: [
@@ -42,7 +43,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     AppComponent,
     ListBooksComponent,
     BookComponent,
-    MessagesComponent],
+    MessagesComponent,
+    BookSearchComponent],
   bootstrap: [
     AppComponent
   ],

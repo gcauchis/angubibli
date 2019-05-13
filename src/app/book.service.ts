@@ -39,6 +39,17 @@ export class BookService {
     );
   }
 
+  searchBooks(term: string): Observable<Book[]> {
+    if (!term.trim()) {
+      // if not search term, return empty book array.
+      return of([]);
+    }
+    return this.http.get<Book[]>(`${this.booksUrl}/?title=${term}`).pipe(
+      tap(_ => this.log(`found books matching "${term}"`)),
+      catchError(this.handleError<Book[]>('searchBooks', []))
+    );
+  }
+
   addBook(book: Book): Observable<Book> {
     return this.http.post<Book>(this.booksUrl, book, httpOptions).pipe(
       tap((newBook: Book) => this.log(`added book id=${newBook.id}`)),

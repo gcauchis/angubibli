@@ -1,0 +1,9 @@
+<input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+<mat-nav-list dense>
+  <mat-list-item *ngFor="let book of  books$ | async">
+    <a routerLink="/book/{{book.id}}">
+        {{ book.id }}: {{book.title | uppercase}} ({{ book.author }})
+    </a>
+  </mat-list-item>
+</mat-nav-list>
