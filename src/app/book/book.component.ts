@@ -22,20 +22,30 @@ export class BookComponent implements OnInit {
   ngOnInit() {
     this.getBook();
   }
-  
+
   getBook(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.bookService.getBook(id)
-      .subscribe(book => this.book = book);
+    if (id == 0) {
+      this.book = new Book();
+    }
+    else {
+      this.bookService.getBook(id)
+        .subscribe(book => this.book = book);
+    }
   }
 
   goBack(): void {
     this.location.back();
   }
-  
- save(): void {
+
+  save(): void {
     this.bookService.updateBook(this.book)
       .subscribe(() => this.goBack());
+  }
+  
+  add(): void {
+    this.bookService.addBook(this.book)
+      .subscribe((newBook: Book) => this.book = newBook);
   }
 
 }

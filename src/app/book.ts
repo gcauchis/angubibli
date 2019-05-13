@@ -2,5 +2,5 @@ export class Book {
   id: number;
   title: string;
   author: string;
-  release: Date;
+  release: Date = new Date();
 }

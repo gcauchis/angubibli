@@ -39,6 +39,13 @@ export class BookService {
     );
   }
 
+  addBook(book: Book): Observable<Book> {
+    return this.http.post<Book>(this.booksUrl, book, httpOptions).pipe(
+      tap((newBook: Book) => this.log(`added book id=${newBook.id}`)),
+      catchError(this.handleError<Book>('addBook'))
+    );
+  }
+
   updateBook(book: Book): Observable<any> {
     return this.http.put(this.booksUrl, book, httpOptions).pipe(
       tap(_ => this.log(`updated book id=${book.id}`)),
@@ -54,7 +61,7 @@ export class BookService {
       catchError(this.handleError<Book>('deleteBook'))
     );
   }
-  
+
   /**
   * Handle Http operation that failed.
   * Let the app continue.
