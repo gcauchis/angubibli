@@ -1,9 +1,17 @@
-<input #searchBox id="search-box" (input)="search(searchBox.value)" />
-
-<mat-nav-list dense>
-  <mat-list-item *ngFor="let book of  books$ | async">
-    <a routerLink="/book/{{book.id}}">
-        {{ book.id }}: {{book.title | uppercase}} ({{ book.author }})
-    </a>
-  </mat-list-item>
-</mat-nav-list>
+<mat-card>
+	<mat-card-header>
+		<mat-card-title>Search book</mat-card-title>
+	</mat-card-header>
+	<mat-card-content class="book-form">
+    <mat-form-field class="book-full-width">
+      <input matInput #searchBox id="search-box" (input)="search(searchBox.value)"  placeholder="Title"/>
+    </mat-form-field>
+    <mat-list dense>
+      <mat-list-item *ngFor="let book of  books$ | async">
+        <a routerLink="/book/{{book.id}}">
+            {{ book.id }}: {{book.title | uppercase}} ({{ book.author }})
+        </a>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
