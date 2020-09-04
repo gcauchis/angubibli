@@ -21,6 +21,7 @@ import { MessagesComponent } from './messages/messages.component';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { BookSearchComponent } from './book-search/book-search.component';
+import { TestPDFComponent } from './test-pdf/test-pdf.component';
 
 @NgModule({
   imports: [
@@ -44,7 +45,8 @@ import { BookSearchComponent } from './book-search/book-search.component';
     ListBooksComponent,
     BookComponent,
     MessagesComponent,
-    BookSearchComponent],
+    BookSearchComponent,
+    TestPDFComponent],
   bootstrap: [
     AppComponent
   ],

@@ -93,7 +93,7 @@ export class BookService {
     };
   }
 
-  /** Log a HeroService message with the MessageService */
+  /** Log a BookService message with the MessageService */
   private log(message: string) {
     this.messagesService.add(`BookService: ${message}`);
   }

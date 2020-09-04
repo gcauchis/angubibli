@@ -1,0 +1,13 @@
+<div id="pdfContent" #pdfContent>
+  <p>test-pdf works!</p>
+  <table>
+    <tr><th>C1</th></tr>
+    <tr><td>v1</td></tr>
+  </table>
+</div>
+
+<mat-card-actions>
+  <button mat-raised-button (click)="openPDF()" >openPDF</button>
+  <button mat-raised-button (click)="downloadPDF()" >downloadPDF</button>
+  <button mat-raised-button (click)="captureScreen()" >captureScreen</button>
+</mat-card-actions>
